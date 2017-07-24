@@ -41,7 +41,7 @@ Vagrant.configure("2") do |config|
 ## Configuration for spinning up a Centos box and installing ansible to it
   config.vm.define "test-centos" do |node|
     node.vm.box = "bento/centos-7.3"
-    node.vm.network "public_network", ip: "192.168.87.100"
+    node.vm.network "private_network", ip: "192.168.87.100"
     node.ssh.insert_key = false
     node.vm.provider "virtualbox" do |vm|
       vm.customize ["modifyvm", :id, "--memory", 1024]
@@ -54,7 +54,7 @@ Vagrant.configure("2") do |config|
 ## Configuration for spinning up an Ubuntu box and installing ansible to it
   config.vm.define "test-ubuntu" do |node|
     node.vm.box = "minimal/xenial64"
-    node.vm.network "public_network", ip: "192.168.87.110"
+    node.vm.network "private_network", ip: "192.168.87.110"
     node.ssh.insert_key = false
     node.vm.provider "virtualbox" do |vm|
     vm.customize ["modifyvm", :id, "--memory", 1024]
